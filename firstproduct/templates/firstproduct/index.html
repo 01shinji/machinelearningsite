@@ -1,0 +1,26 @@
+{% extends 'firstproduct/base.html' %}
+{% block title %}画像判定アプリ推定{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="border_bottom">推定</h1>
+        <p>
+            画像ファイルを選択して推定ボタンをクリックしてください
+        </p>
+        <form action="{% url 'firstproduct:predict' %}" method="post" class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-grop">
+                <div class="custom-file">
+                    {{ form.image }}
+                    
+                    <label class="custom-file-input" for="customFile">
+                        ファイル選択
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                推定
+            </button>
+        </form>
+    </div>
+{% endblock %}

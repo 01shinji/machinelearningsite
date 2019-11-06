@@ -1,0 +1,32 @@
+{% extends 'firstproduct/base.html' %}
+{% block title %}画像判定アプリ結果{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="border_bottom">結果</h1>
+
+        <table class='table'>
+            <tbody>
+                <tr>
+                    <td>ファイル名</td>
+                    <td>{{ photo_name }}</td>
+                </tr>
+                <tr>
+                    <td>画像ファイル</td>
+                    <td><img class='preview-img' src={{ photo_data }}></img></td>
+                </tr>
+                <tr>
+                    <td>推定ラベル</td>
+                    <td>{{ predicted }}</td>
+                </tr>
+                <tr>
+                    <td>推定確率</td>
+                    <td>{{ percentage }} %</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <a href = "{% url 'firstproduct:index' %}" class="btn btn-primary">画像選択メニューに戻る</a>
+        
+    </div>
+{% endblock %}
